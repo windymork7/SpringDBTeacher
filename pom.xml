@@ -123,6 +123,7 @@
 		    <artifactId>hibernate-validator</artifactId>
 		    <version>4.3.2.Final</version>
 		</dependency>
+		
 		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc6 -->
 		<dependency>
 		    <groupId>com.oracle.database.jdbc</groupId>
@@ -137,6 +138,12 @@
 		    <version>2.8.0</version>
 		</dependency>
 		
+		<!-- 스프링 JDBC 설정 : JdbcTemplate -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-jdbc</artifactId>
+		    <version>4.1.4.RELEASE</version>
+		</dependency>
 		
 		   
 	</dependencies>
