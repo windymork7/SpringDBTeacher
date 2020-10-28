@@ -138,10 +138,8 @@ public class BDao
 	// 조회수
 	public void hit(final int BID)
 	{
-		
 		template.update(new PreparedStatementCreator()
 		{
-			
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException
 			{
