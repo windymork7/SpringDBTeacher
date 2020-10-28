@@ -57,7 +57,8 @@ public class BDao
 	// 해당게시글 보기
 	public BDto contentView(int bId)
 	{
-
+		hit(bId);
+		
 		String sql = "SELECT * FROM MVC_BOARD WHERE BID = " + bId;
 		
 		return template.queryForObject(sql, new BeanPropertyRowMapper<BDto>(BDto.class));
@@ -132,6 +133,25 @@ public class BDao
 		String sql = "SELECT * FROM MVC_BOARD WHERE BID = " + bId;
 		
 		return template.queryForObject(sql, new BeanPropertyRowMapper<BDto>(BDto.class));
+	}
+	
+	// 조회수
+	public void hit(final int BID)
+	{
+		
+		template.update(new PreparedStatementCreator()
+		{
+			
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException
+			{
+				String sql = "UPDATE MVC_BOARD SET BHIT = BHIT+1 WHERE BID = ?";
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, BID);
+				
+				return pstmt;
+			}
+		});
 	}
 
 }
